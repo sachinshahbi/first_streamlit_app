@@ -20,12 +20,10 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 
 
-streamlit.header("Fruityvice Fruit Advice!")
-
-
 # Display the table on the page.
 streamlit.dataframe(my_fruit_list)
 
+streamlit.header("Fruityvice Fruit Advice!")
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 
 # write your own comment -what does the next line do? 
@@ -35,4 +33,5 @@ streamlit.dataframe(fruityvice_normalized)
 
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 streamlit.write('The user entered ', fruit_choice)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/fruit"+Fruit_choice)
 
